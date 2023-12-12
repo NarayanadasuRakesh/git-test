@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# using variables
 PERSON1=Ramesh
 PERSON2=Suresh
 echo "$PERSON1: Good morning $PERSON2"
