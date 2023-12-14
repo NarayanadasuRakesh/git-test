@@ -10,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "script started executing at $TIMESTAMP"
+echo "script started executing at $TIMESTAMP" $>> $LOGFILE
 
 VALIDATE() {
   if [ $1 -ne 0 ]
@@ -28,21 +28,21 @@ else
   echo -e "$GREEN You are a root user $NC"
 fi
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/yum.repos.d/mongo.repo $>> $LOGFILE
 
 echo -e "$YELLOW Installing MONGODB ..... $NC"
-dnf install mongodb-org -y 
+dnf install mongodb-org -y $>> $LOGFILE
 VALIDATE $? "INSTALLATION OF MONGODB"
 
-systemctl enable mongod
+systemctl enable mongod $>> $LOGFILE
 VALIDATE $? "ENABLED MONGODB"
 
-systemctl start mongod
+systemctl start mongod $>> $LOGFILE
 VALIDATE $? "STARTED MONGODB"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf $>> $LOGFILE
 
-systemctl restart mongod
+systemctl restart mongod $>> $LOGFILE
 VALIDATE $? "RESTARTED MONGODB"
 
 

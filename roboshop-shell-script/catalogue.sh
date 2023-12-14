@@ -61,7 +61,7 @@ npm install &>> $LOGFILE
 VALIDATE $? "INSTALLING DEPENDENCIES"
 
 #copying catalogue service file
-cp /home/centos/roboshop-shell/mongo.repo /etc/systemd/system/catalogue.service &>> $LOGFILE
+cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "COPYING CATALOGUE SERVICE FILE"
 
 systemctl daemon-reload &>> $LOGFILE
