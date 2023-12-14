@@ -42,7 +42,7 @@ dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "INSTALLING NODEJS"
 
 #creating user
-id roboshop
+id roboshop &>> $LOGFILE
 if [ $? -ne 0]
 then
   useradd roboshop &>> $LOGFILE
@@ -63,7 +63,7 @@ npm install &>> $LOGFILE
 VALIDATE $? "INSTALLING DEPENDENCIES"
 
 #copying catalogue service file
-cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/systemd/system/catalogue.service &>> $LOGFILE
+cp /home/centos/git-test/roboshop-shell-script/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "COPYING CATALOGUE SERVICE FILE"
 
 systemctl daemon-reload &>> $LOGFILE
