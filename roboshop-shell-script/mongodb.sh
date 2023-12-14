@@ -28,7 +28,7 @@ else
   echo -e "$GREEN You are a root user $NC"
 fi
 
-cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/yum.repos.d/mongo.repo $>> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/mongo.repo $>> $LOGFILE
 
 echo -e "$YELLOW Installing MONGODB ..... $NC"
 dnf install mongodb-org -y $>> $LOGFILE
