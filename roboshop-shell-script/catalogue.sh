@@ -43,7 +43,7 @@ VALIDATE $? "INSTALLING NODEJS"
 
 #creating user
 id roboshop &>> $LOGFILE
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then
   useradd roboshop &>> $LOGFILE
   VALIDATE $? "USER CREATING"
@@ -75,7 +75,10 @@ VALIDATE $? "ENABLING CATALOGUE"
 systemctl start catalogue &>> $LOGFILE
 VALIDATE $? "STARTING CATALOGUE"
 
-echo -e "$YELLOW Istalling mongo client$NC"
+cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+VALIDATE $? "Copied MongoDB Repo"
+
+echo -e "$YELLOW Installing mongo client$NC"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSTALLING MONGODB CLIENT"
 
