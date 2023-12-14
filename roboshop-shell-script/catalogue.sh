@@ -37,7 +37,7 @@ VALIDATE $? "DISABLING CURRENT NODEJS"
 dnf module enable nodejs:18 -y &>> $LOGFILE
 VALIDATE $? "ENABLING NODEJS:18"
 
-echo -e "$YELLOW Installing Nodejs$NC"
+echo -e "$YELLOW Installing Nodejs .....$NC"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "INSTALLING NODEJS"
 
