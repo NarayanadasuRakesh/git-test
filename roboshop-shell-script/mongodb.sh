@@ -16,6 +16,7 @@ VALIDATE() {
   if [ $1 -ne 0 ]
   then
     echo -e "$RED ERROR: $2 FAILED $NC"
+    exit 1
   else
     echo -e "$GREEN $2 SUCCESS $NC"
   fi
@@ -24,6 +25,7 @@ VALIDATE() {
 if [ $ID -ne 0 ]
 then
   echo -e "$RED ERROR: Please run script with root access $NC"
+  exit 1
 else
   echo -e "$GREEN You are a root user $NC"
 fi

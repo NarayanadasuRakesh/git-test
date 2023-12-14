@@ -16,6 +16,7 @@ echo "script started executing at $TIMESTAMP"  &>> $LOGFILE
 if [ $ID -ne 0 ]
 then
   echo -e "$RED ERROR: please run script with root access $NC"
+  exit 1
 else
   echo -e "$GREEN You are root user$NC"
 fi
@@ -24,6 +25,7 @@ VALIDATE() {
     if [ $1 -ne 0 ]
     then 
       echo -e "$RED $2 IS FAILED$NC"
+      exit 1
     else
       echo -e "$GREEN $2 IS SUCCESS$NC"
     fi
