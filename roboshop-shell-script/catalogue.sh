@@ -3,7 +3,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-MONGODB_HOST="mongodb.rakeshintech.online"
+MONGODB_HOST="<mongodb-ip-address/domain-name>"
 
 RED="\e[31m"
 GREEN="\e[32m"
