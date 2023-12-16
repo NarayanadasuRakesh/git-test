@@ -12,7 +12,7 @@ NC="\e[0m"
 
 echo "Script started executing at $TIMESTAMP" &>>LOGFILE
 
-if [ $ID -ne 0 ]
+if [ "$ID" -ne 0 ]
 then
   echo -e "$RED ERROR: Please run script with root access$NC"
   exit 1
@@ -30,7 +30,7 @@ VALIDATE() {
   fi
 }
 
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>>LOGFILE
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> $LOGFILE
 VALIDATE $? "Configure yum repos"
 
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>LOGFILE
