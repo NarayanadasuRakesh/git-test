@@ -3,7 +3,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
-exec &>LOGFILE
+exec &>>LOGFILE
 
 #Colors
 RED="\e[31m"
