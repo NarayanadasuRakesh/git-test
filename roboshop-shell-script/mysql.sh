@@ -3,6 +3,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
+exec &>LOGFILE
 
 #Colors
 RED="\e[31m"
@@ -15,25 +16,25 @@ echo "Script started executing at $TIMESTAMP"
 #Check for root user
 if [ $ID -ne 0 ]
 then
-  echo "$RED ERROR: Please run script with root access$NC"
+  echo -e "$RED ERROR: Please run script with root access$NC"
 else
-  echo "$GREEN You are root user$NC"
+  echo -e "$GREEN You are root user$NC"
 fi
 
 VALIDATE() {
     if [ "$1" -ne 0 ]
     then
-      echo "$RED ERROR: $2 is FAILED$NC"
+      echo -e "$RED ERROR: $2 is FAILED$NC"
       exit 1
     else
-      echo "$GREEN $2 is SUCCESS$NC"
+      echo -e "$GREEN $2 is SUCCESS$NC"
     fi
 }
 
 dnf module disable mysql -y
 VALIDATE $? "Disable Mysql"
 
-echo "$YELLOW Installing mysql.....$NC"
+echo -e "$YELLOW Installing mysql.....$NC"
 
 dnf list installed mysql
 if [ $? -ne 0 ]
