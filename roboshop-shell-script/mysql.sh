@@ -34,6 +34,9 @@ VALIDATE() {
 dnf module disable mysql -y &>>LOGFILE
 VALIDATE $? "Disable Mysql"
 
+cp mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOGFILE
+VALIDATE $? "Copying Mysql repo"
+
 echo -e "$YELLOW Installing mysql.....$NC"
 dnf install mysql-community-server -y &>>LOGFILE
 VALIDATE $? "Installing Mysql"
