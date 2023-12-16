@@ -3,7 +3,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
-exec &>>LOGFILE
 
 #Colors
 RED="\e[31m"
@@ -11,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "Script started executing at $TIMESTAMP"
+echo "Script started executing at $TIMESTAMP" &>>LOGFILE
 
 #Check for root user
 if [ $ID -ne 0 ]
@@ -31,28 +30,28 @@ VALIDATE() {
     fi
 }
 
-dnf module disable mysql -y
+dnf module disable mysql -y &>>LOGFILE
 VALIDATE $? "Disable Mysql"
 
 echo -e "$YELLOW Installing mysql.....$NC"
 
-dnf list installed mysql
+dnf list installed mysql &>>LOGFILE
 if [ $? -ne 0 ]
 then
-  dnf install mysql-community-server -y
+  dnf install mysql-community-server -y &>>LOGFILE
   VALIDATE $? "Installing Mysql"
 else
   echo "$YELLOW mysql already installed...SKIPPING$NC"
 fi
 
-systemctl enable mysqld
+systemctl enable mysqld &>>LOGFILE
 VALIDATE $? "Enable mysql"
 
-systemctl start mysqld
+systemctl start mysql &>>LOGFILE
 VALIDATE $? "Start mysql"
 
-mysql_secure_installation --set-root-pass RoboShop@1
+mysql_secure_installation --set-root-pass RoboShop@1 &>>LOGFILE
 VALIDATE $? "set mysql root password"
 
-mysql -uroot -pRoboShop@1
+mysql -uroot -pRoboShop@1 &>>LOGFILE
 VALIDATE $? "login to mysql"
