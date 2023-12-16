@@ -3,7 +3,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-MONGODB_HOST="<mongodb-ip/domain-name>"
+MONGODB_HOST="mongodb.rakeshintech.online"
 
 RED="\e[31m"
 GREEN="\e[32m"
@@ -37,13 +37,13 @@ VALIDATE $? "DISABLING CURRENT NODEJS"
 dnf module enable nodejs:18 -y &>> $LOGFILE
 VALIDATE $? "ENABLING NODEJS:18"
 
-echo -e "$YELLOW Installing Nodejs$NC"
+echo -e "$YELLOW Installing Nodejs .....$NC"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "INSTALLING NODEJS"
 
 #creating user
-id roboshop
-if [ $? -ne 0]
+id roboshop &>> $LOGFILE
+if [ $? -ne 0 ]
 then
   useradd roboshop &>> $LOGFILE
   VALIDATE $? "USER CREATING"
@@ -63,7 +63,7 @@ npm install &>> $LOGFILE
 VALIDATE $? "INSTALLING DEPENDENCIES"
 
 #copying catalogue service file
-cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/systemd/system/catalogue.service &>> $LOGFILE
+cp /home/centos/git-test/roboshop-shell-script/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "COPYING CATALOGUE SERVICE FILE"
 
 systemctl daemon-reload &>> $LOGFILE
@@ -75,7 +75,10 @@ VALIDATE $? "ENABLING CATALOGUE"
 systemctl start catalogue &>> $LOGFILE
 VALIDATE $? "STARTING CATALOGUE"
 
-echo -e "$YELLOW Istalling mongo client$NC"
+cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+VALIDATE $? "Copied MongoDB Repo"
+
+echo -e "$YELLOW Installing mongo client$NC"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSTALLING MONGODB CLIENT"
 
