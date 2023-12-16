@@ -14,28 +14,28 @@ echo "Script started executing at $TIMESTAMP" &>>"$LOGFILE"
 
 if [ "$ID" -ne 0 ]
 then 
-  echo "$RED ERROR: Please run script using root access $NC"
+  echo -e "$RED ERROR: Please run script using root access $NC"
   exit 1
 else
-  echo "$GREEN You are root user$NC"
+  echo -e "$GREEN You are root user$NC"
 fi
 
 #Function to validation various commands
 VALIDATE() {
   if [ "$1" -ne 0 ] 
   then
-    echo "$RED $2 is ...FAILED$NC"
+    echo -e "$RED $2 is ...FAILED$NC"
     exit 1
   else
-    echo "$GREEN $2 is ...SUCCESS$NC"
+    echo -e "$GREEN $2 is ...SUCCESS$NC"
   fi
 }
 
-echo "$YELLOW Installing rpm package.....$NC"
+echo -e "$YELLOW Installing rpm package.....$NC"
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>"$LOGFILE"
 VALIDATE $? "Installing rpm package"
 
-echo "$YELLOW Installing redis.....$NC"
+echo -e "$YELLOW Installing redis.....$NC"
 dnf module enable redis:remi-6.2 -y &>>"$LOGFILE"
 VALIDATE $? "Enable redis package"
 
@@ -45,7 +45,7 @@ then
   dnf install redis -y &>>"$LOGFILE"
   VALIDATE $? "Installing redis"
 else
-  echo "$YELLOW redis already installed...SKIPPING"
+  echo -e "$YELLOW redis already installed...SKIPPING"
 fi
 
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf &>>"$LOGFILE"
