@@ -16,6 +16,7 @@ echo "Script started executing at $TIMESTAMP" &>>LOGFILE
 if [ $ID -ne 0 ]
 then
   echo -e "$RED ERROR: Please run script with root access$NC"
+  exit 1
 else
   echo -e "$GREEN You are root user$NC"
 fi
