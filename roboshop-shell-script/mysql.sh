@@ -10,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "Script started executing at $TIMESTAMP" &>>LOGFILE
+echo "Script started executing at $TIMESTAMP" &>>$LOGFILE
 
 #Check for root user
 if [ $ID -ne 0 ]
@@ -31,24 +31,24 @@ VALIDATE() {
     fi
 }
 
-dnf module disable mysql -y &>>LOGFILE
+dnf module disable mysql -y &>>$LOGFILE
 VALIDATE $? "Disable Mysql"
 
-cp mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOGFILE
+cp mysql.repo /etc/yum.repos.d/mysql.repo &>>$LOGFILE
 VALIDATE $? "Copying Mysql repo"
 
 echo -e "$YELLOW Installing mysql.....$NC"
-dnf install mysql-community-server -y &>>LOGFILE
+dnf install mysql-community-server -y &>>$LOGFILE
 VALIDATE $? "Installing Mysql"
 
-systemctl enable mysqld &>>LOGFILE
+systemctl enable mysqld &>>$LOGFILE
 VALIDATE $? "Enable mysql"
 
-systemctl start mysqld &>>LOGFILE
+systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Start mysql"
 
-mysql_secure_installation --set-root-pass RoboShop@1 &>>LOGFILE
+mysql_secure_installation --set-root-pass RoboShop@1 &>>$LOGFILE
 VALIDATE $? "set mysql root password"
 
-mysql -uroot -pRoboShop@1 &>>LOGFILE
+mysql -uroot -pRoboShop@1 &>>$LOGFILE
 VALIDATE $? "login to mysql"
