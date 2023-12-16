@@ -3,7 +3,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
-exec &>LOGFILE
 
 #Colors
 RED="\e[31m"
@@ -11,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "Script started executing at $TIMESTAMP"
+echo "Script started executing at $TIMESTAMP" &>>LOGFILE
 
 #Check for root user
 if [ $ID -ne 0 ]
@@ -32,11 +31,11 @@ VALIDATE() {
 }
 
 echo -e "$YELLOW Installing python.....$NC"
-dnf install python36 gcc python3-devel -y
+dnf install python36 gcc python3-devel -y &>>LOGFILE
 VALIDATE $? "Installing python"
 
 #creating user
-id roboshop 
+id roboshop  &>>LOGFILE
 if [ $? -ne 0 ]
 then
   useradd roboshop 
@@ -45,30 +44,30 @@ else
   echo -e "$YELLOW roboshop user already exist...skipping$NC"
 fi
 
-mkdir -p /app 
+mkdir -p /app  &>>LOGFILE
 VALIDATE $? "Creating directory"
 
-curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip
+curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip &>>LOGFILE
 VALIDATE $? "Downloading payment src"
 
-cd /app 
+cd /app &>>LOGFILE
 VALIDATE $? "Change directory"
 
-unzip -o /tmp/payment.zip
+unzip -o /tmp/payment.zip &>>LOGFILE
 VALIDATE $? "Unzip src"
 
-pip3.6 install -r requirements.txt
+pip3.6 install -r requirements.txt &>>LOGFILE
 VALIDATE $? "Installing dependencies"
 
-cp /home/centos/roboshop-shell-script/payment.service /etc/systemd/system/payment.service
+cp /home/centos/roboshop-shell-script/payment.service /etc/systemd/system/payment.service &>>LOGFILE
 VALIDATE $? "Copying payment.service file"
 
-systemctl daemon-reload
+systemctl daemon-reload &>>LOGFILE
 VALIDATE $? "Daemon reload"
 
-systemctl enable payment 
+systemctl enable payment  &>>LOGFILE
 VALIDATE $? "Enable payment service"
 
-systemctl start payment
+systemctl start payment &>>LOGFILE
 VALIDATE $? "Start payment service"
 
