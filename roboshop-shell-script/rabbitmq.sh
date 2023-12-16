@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ID=(id -u)
+ID=$(id -u)
 TIMESTAMP=(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
 
