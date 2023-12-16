@@ -3,6 +3,7 @@
 ID=(id -u)
 TIMESTAMP=(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
+MONGODB_HOST=<mongodb-ip/domain-name>
 
 #Colors
 RED="\e[31m"
@@ -87,6 +88,6 @@ VALIDATE $? "Start user"
 dnf install mongodb-org-shell -y
 VALIDATE $? "Installing mongodb client"
 
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/user.js
+mongo --host $MONGODB_HOST </app/schema/user.js
 VALIDATE $? "Schema into mongodb"
 
