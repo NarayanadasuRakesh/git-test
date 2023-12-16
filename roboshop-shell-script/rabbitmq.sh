@@ -10,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "Script started executing at $TIMESTAMP" &>>LOGFILE
+echo "Script started executing at $TIMESTAMP" &>>$LOGFILE
 
 #Check for root user
 if [ $ID -ne 0 ]
@@ -35,23 +35,23 @@ echo -e "$YELLOW Downloading package$NC"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> $LOGFILE
 VALIDATE $? "Configure yum repos"
 
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>LOGFILE
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>$LOGFILE
 VALIDATE $? "Configue yum repos for rabbitmq"
 
-echo -e "$YELLOW Installing tabbitmq.....$NC"
-dnf install rabbitmq-server -y  &>>LOGFILE
+echo -e "$YELLOW Installing rabbitmq.....$NC"
+dnf install rabbitmq-server -y  &>>$LOGFILE
 VALIDATE $? "Install rabbitmq"
 
-systemctl enable rabbitmq-server &>>LOGFILE
+systemctl enable rabbitmq-server &>>$LOGFILE
 VALIDATE $? "Enable rabbitmq"
 
-systemctl start rabbitmq-server &>>LOGFILE
+systemctl start rabbitmq-server &>>$LOGFILE
 VALIDATE $? "Start rabbitmq"
 
-rabbitmqctl add_user roboshop roboshop123 &>>LOGFILE
+rabbitmqctl add_user roboshop roboshop123 &>>$LOGFILE
 VALIDATE $? "Adding new user to rabbitmq"
 
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>LOGFILE
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$LOGFILE
 VALIDATE $? "Set permissions to rabbitmq"
 
 
