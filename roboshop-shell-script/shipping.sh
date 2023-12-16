@@ -3,6 +3,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
+MYSQL_HOST=<mysql-ip/domain-name>
 
 #Colors
 RED="\e[31m"
@@ -80,7 +81,7 @@ echo -e "$YELLOW Installing mysql client.....$NC"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing mysql client"
 
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql  &>>$LOGFILE
+mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/schema/shipping.sql  &>>$LOGFILE
 VALIDATE $? "loading schema"
 
 systemctl restart shipping &>>$LOGFILE

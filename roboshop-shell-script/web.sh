@@ -3,7 +3,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
-exec &>LOGFILE
 
 #Colors
 RED="\e[31m"
@@ -11,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "Script started executing at $TIMESTAMP"
+echo "Script started executing at $TIMESTAMP" &>>$LOGFILE
 
 #Check for root user
 if [ $ID -ne 0 ]
@@ -32,29 +31,31 @@ VALIDATE() {
 }
 
 echo -e "$YELLOW Installing nginx.....$NC"
-dnf install nginx -y
+dnf install nginx -y &>>$LOGFILE
 VALIDATE $? "Installing nginx"
 
-systemctl enable nginx
+echo -e "$YELLOW Enabling nginx.....$NC"
+systemctl enable nginx &>>$LOGFILE
 VALIDATE $? "Enable nginx"
 
-systemctl start nginx
+echo -e "$YELLOW Starting nginx.....$NC"
+systemctl start nginx &>>$LOGFILE
 VALIDATE $? "Start nginx"
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/* &>>$LOGFILE
 VALIDATE $? "Removing default nginx html"
 
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>>$LOGFILE
 VALIDATE $? "Downloading web src"
 
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html &>>$LOGFILE
 VALIDATE $? "Change directory"
 
-unzip -o /tmp/web.zip
+unzip -o /tmp/web.zip &>>$LOGFILE
 VALIDATE $? "Unzip web src"
 
-cp /home/centos/roboshop-shell-script/roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp /home/centos/git-test/roboshop-shell-script/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOGFILE
 VALIDATE $? "Copying roboshop.conf file"
 
-systemctl restart nginx 
+systemctl restart nginx &>>$LOGFILE
 VALIDATE $? "Restarting nginx"
