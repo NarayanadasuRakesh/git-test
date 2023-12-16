@@ -51,7 +51,7 @@ systemctl start mysqld
 VALIDATE $? "Start mysql"
 
 mysql_secure_installation --set-root-pass RoboShop@1
-VALIDATE $? "mysql root password"
+VALIDATE $? "set mysql root password"
 
 mysql -uroot -pRoboShop@1
 VALIDATE $? "login to mysql"
