@@ -31,9 +31,11 @@ VALIDATE() {
   fi
 }
 
+echo -e "$YELLOW Disabling nodejs.....$NC"
 dnf module disable nodejs -y
 VALIDATE $? "Module disable"
 
+echo -e "$YELLOW Enabling nodejs.....$NC"
 dnf module enable nodejs:18 -y
 VALIDATE $? "Module enable"
 
@@ -70,7 +72,7 @@ VALIDATE $? "unzip"
 npm install 
 VALIDATE $? "Installing dependencies"
 
-cp /home/centos/roboshop-shell-script/user.service /etc/systemd/system/user.service
+cp /home/centos/git-test/roboshop-shell-script/user.service /etc/systemd/system/user.service
 VALIDATE $? "copying user.service file"
 
 systemctl daemon-reload
