@@ -31,6 +31,7 @@ VALIDATE() {
   fi
 }
 
+echo -e "$YELLOW Downloading package"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>> $LOGFILE
 VALIDATE $? "Configure yum repos"
 
