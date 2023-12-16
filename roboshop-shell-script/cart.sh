@@ -3,7 +3,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP"
-exec &>LOGFILE
 
 #Colors
 RED="\e[31m"
@@ -11,7 +10,7 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 NC="\e[0m"
 
-echo "Script started executing at $TIMESTAMP"
+echo "Script started executing at $TIMESTAMP" &>>$LOGFILE
 
 #Check for root user
 if [ $ID -ne 0 ]

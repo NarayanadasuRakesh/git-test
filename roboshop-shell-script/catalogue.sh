@@ -31,9 +31,11 @@ VALIDATE() {
     fi
 }
 
+echo -e "$YELLOW Disabling nodejs.....$NC"
 dnf module disable nodejs -y &>> $LOGFILE
 VALIDATE $? "DISABLING CURRENT NODEJS"
 
+echo -e "$YELLOW Enabling nodejs 18.....$NC"
 dnf module enable nodejs:18 -y &>> $LOGFILE
 VALIDATE $? "ENABLING NODEJS:18"
 
