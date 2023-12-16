@@ -60,7 +60,7 @@ VALIDATE $? "Unzip src"
 pip3.6 install -r requirements.txt &>>$LOGFILE
 VALIDATE $? "Installing dependencies"
 
-cp /home/centos/roboshop-shell-script/payment.service /etc/systemd/system/payment.service &>>$LOGFILE
+cp /home/centos/git-test/roboshop-shell-script/payment.service /etc/systemd/system/payment.service &>>$LOGFILE
 VALIDATE $? "Copying payment.service file"
 
 systemctl daemon-reload &>>$LOGFILE
