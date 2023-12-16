@@ -35,15 +35,8 @@ dnf module disable mysql -y &>>LOGFILE
 VALIDATE $? "Disable Mysql"
 
 echo -e "$YELLOW Installing mysql.....$NC"
-
-dnf list installed mysql &>>LOGFILE
-if [ $? -ne 0 ]
-then
-  dnf install mysql-community-server -y &>>LOGFILE
-  VALIDATE $? "Installing Mysql"
-else
-  echo "$YELLOW mysql already installed...SKIPPING$NC"
-fi
+dnf install mysql-community-server -y &>>LOGFILE
+VALIDATE $? "Installing Mysql"
 
 systemctl enable mysqld &>>LOGFILE
 VALIDATE $? "Enable mysql"
