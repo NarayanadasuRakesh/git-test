@@ -2,10 +2,10 @@
 
 SOURCE_DIR="/tmp/shell_script_logs"
 
-RC=\e[31m
-GC=\e[32m
-YC=\e[33m
-NC=\e[0m
+RC="\e[31m"
+GC="\e[32m"
+
+NC="\e[0m"
 
 if [ ! -d $SOURCE_DIR ]
 then 
@@ -16,7 +16,7 @@ fi
 
 while IFS= read -r line
 do
-    echo "$GC Deleting files: $line $NC"
+    echo -e "$GC Deleting files: $line $NC"
     rm -rf $line
-    echo "$GC Deleted files: $line $NC"
+    echo -e "$GC Deleted files: $line $NC"
 done <<< $delete_log_files
