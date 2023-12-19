@@ -16,7 +16,6 @@ fi
 
 while IFS= read -r line
 do
-    echo -e "$GC Deleting files: $line $NC"
     rm -rf $line
     echo -e "$GC Deleted files: $line $NC"
 done <<< $delete_log_files
