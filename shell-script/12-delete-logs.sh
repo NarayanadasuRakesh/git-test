@@ -10,6 +10,7 @@ NC="\e[0m"
 if [ ! -d $SOURCE_DIR ]
 then 
     echo -e "$RC $SOURCE_DIR does not exists $NC"
+    exit 1
 else
     delete_log_files=$(find $SOURCE_DIR -type f -mtime +14 -name "*.log")
 fi
