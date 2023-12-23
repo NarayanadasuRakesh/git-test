@@ -3,7 +3,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-MONGODB_HOST="<mongodb-ip/domain-name>"
 
 RED="\e[31m"
 GREEN="\e[32m"
@@ -84,6 +83,7 @@ echo -e "$YELLOW Installing mongo client$NC"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSTALLING MONGODB CLIENT"
 
+read -p "Enter mongodb host: " MONGODB_HOST
 mongo --host "${MONGODB_HOST}" </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "Loading Catalogue data into MongoDB"
 
