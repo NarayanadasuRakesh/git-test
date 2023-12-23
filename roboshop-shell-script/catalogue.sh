@@ -68,6 +68,16 @@ VALIDATE $? "INSTALLING DEPENDENCIES"
 cp /home/centos/git-test/roboshop-shell-script/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "COPYING CATALOGUE SERVICE FILE"
 
+read -p "Enter mongodb host: " MONGODB_HOST
+if [ -f "$SERVICE_FILE1" ]; then
+  # Replace IP
+  sed -i "s/<MONGODB-SERVER-IPADDRESS>/${MONGODB_HOST}/g" "$SERVICE_FILE1"
+  echo "Replacement successful."
+else
+  echo "Error: File not found - $SERVICE_FILE1"
+  exit 1
+fi
+
 systemctl daemon-reload &>> $LOGFILE
 VALIDATE $? "CATALOGUE DAEMON RELOAD"
 
@@ -79,15 +89,6 @@ VALIDATE $? "STARTING CATALOGUE"
 
 cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "Copied MongoDB Repo"
-read -p "Enter mongodb host: " MONGODB_HOST
-if [ -f "$SERVICE_FILE1" ]; then
-  # Replace IP
-  sed -i "s/<MONGODB-SERVER-IPADDRESS>/${MONGODB_HOST}/g" "$SERVICE_FILE1"
-  echo "Replacement successful."
-else
-  echo "Error: File not found - $SERVICE_FILE1"
-  exit 1
-fi
 
 echo -e "$YELLOW Installing mongo client$NC"
 dnf install mongodb-org-shell -y &>> $LOGFILE
