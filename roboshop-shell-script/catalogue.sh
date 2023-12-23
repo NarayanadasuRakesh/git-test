@@ -3,6 +3,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
+SERVICE_FILE1="/etc/systemd/system/catalogue.service"
 
 RED="\e[31m"
 GREEN="\e[32m"
@@ -78,12 +79,21 @@ VALIDATE $? "STARTING CATALOGUE"
 
 cp /home/centos/git-test/roboshop-shell-script/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "Copied MongoDB Repo"
+read -p "Enter mongodb host: " MONGODB_HOST
+if [ -f "$SERVICE_FILE1" ]; then
+  # Replace IP
+  sed -i "s/<MONGODB-SERVER-IPADDRESS>/${MONGODB_HOST}/g" "$SERVICE_FILE1"
+  echo "Replacement successful."
+else
+  echo "Error: File not found - $SERVICE_FILE1"
+  exit 1
+fi
 
 echo -e "$YELLOW Installing mongo client$NC"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSTALLING MONGODB CLIENT"
 
-read -p "Enter mongodb host: " MONGODB_HOST
+
 mongo --host "${MONGODB_HOST}" </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "Loading Catalogue data into MongoDB"
 
