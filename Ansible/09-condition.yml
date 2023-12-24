@@ -11,3 +11,7 @@
   - name: Print return code
     ansible.builtin.debug:
       msg: "{{user.rc}}"
+  - name: Create user
+    ansible.builtin.user:
+      name: roboshop
+    when: user.rc == 1 # Condition
