@@ -1,0 +1,9 @@
+- name: Variables at play level
+  hosts: localhost
+  vars:
+    role: "DevOps Engineer"
+    exp: "8 years"
+  tasks:
+    - name: defining variables play level
+      ansible.builtin.debug:
+        msg: "I am working as a {{role}} and having {{exp}} of experience"

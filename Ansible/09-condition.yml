@@ -1,0 +1,9 @@
+- name: Ansible condition
+  hosts: localhost
+  tasks:
+  - name: create user
+    ansible.builtin.command: id roboshop
+    register: user
+  - name: print user stdout
+    ansible.builtin.debug:
+      msg: "user output is {{user}}"

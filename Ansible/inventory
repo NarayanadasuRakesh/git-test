@@ -1,0 +1,1 @@
+web ansible_host=<ip> ansible_user=centos ansible_password=DevOps321

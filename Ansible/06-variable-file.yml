@@ -1,0 +1,8 @@
+- name: Variables 
+  hosts: localhost
+  vars_files:
+  - vars.yml
+  tasks:
+    - name: defining variables using files
+      ansible.builtin.debug:
+        msg: "I am working as a {{role}} and having {{exp}} of experience"
