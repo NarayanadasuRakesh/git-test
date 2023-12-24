@@ -1,2 +1,6 @@
-USERNAME=centos
-PASSWORD=DevOps321
+[localhost]
+localhost
+
+[localhost:vars]
+USERNAME="centos"
+PASSWORD="DevOps321"
