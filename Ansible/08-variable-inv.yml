@@ -1,6 +1,6 @@
 - name: Variables 
   hosts: localhost
   tasks:
-    - name: defining variables in inventory
-      ansible.builtin.debug:
-        msg: "Your username is {{USERNAME}} and password is {{PASSWORD}}"
+  - name: defining variables in inventory
+    ansible.builtin.debug:
+      msg: "Your username is {{USERNAME}} and password is {{PASSWORD}}"
