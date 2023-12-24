@@ -4,6 +4,10 @@
   - name: create user
     ansible.builtin.command: id roboshop
     register: user
-  - name: print user stdout
+    ignore_errors: true
+  - name: Print variable value
     ansible.builtin.debug:
       msg: "user output is {{user}}"
+  - name: Print return code
+    ansible.builtin.debug:
+      msg: "{{user.rc}}"
