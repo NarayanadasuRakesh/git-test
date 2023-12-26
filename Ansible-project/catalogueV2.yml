@@ -1,6 +1,6 @@
 - name: Configure catalogue server
   hosts: catalogue
-  vars_prompt:
+  vars_prompt: # input hostname
     - name: MONGODB_HOST
       prompt: Enter mongodb domain/IP
       private: false
@@ -36,8 +36,6 @@
     ansible.builtin.copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
-  #- name: Prompt for domain/IP
-    
   - name: Replace domain name/IP
     ansible.builtin.replace:
       path: /etc/systemd/system/catalogue.service
@@ -46,25 +44,20 @@
   - name: Daemon reload service
     ansible.builtin.systemd_service:
       daemon_reload: yes
-
   - name: Copy mongodb client
     ansible.builtin.copy:
       src: mongodb.repo
       dest: /etc/yum.repos.d/mongodb.repo
-  
   - name: Install mongodb client
     ansible.builtin.package:
       name: mongodb-org-shell
       state: present
-
   - name: Get catalogue count
     ansible.builtin.command: mongo --host {{ MONGODB_HOST }} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
     register: product_count
-
   - name: Load schema
     ansible.builtin.command: mongo --host {{ MONGODB_HOST }} < /app/schema/catalogue.js
     when: product_count.stdout == "0"
-
   - name: Enable and Start catalogue service
     ansible.builtin.systemd_service:
       name: catalogue
