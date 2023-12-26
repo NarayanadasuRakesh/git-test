@@ -1,0 +1,16 @@
+[my_servers]
+web ansible_host=
+mongodb ansible_host=
+redis ansible_host=
+mysql ansible_host=
+rabbitmq ansible_host=
+catalogue ansible_host=
+user ansible_host=
+cart ansible_host=
+shipping ansible_host=
+payment ansible_host=
+dispatch ansible_host=
+
+[my_servers:vars]
+ansible_user=centos
+ansible_password=DevOps321

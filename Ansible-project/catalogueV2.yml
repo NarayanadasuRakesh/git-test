@@ -1,0 +1,59 @@
+- name: Configure catalogue server
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: Disable nodejs module
+    ansible.builtin.shell: dnf module disable nodejs -y; dnf module enable nodejs:18 -y
+  - name: Install nodejs
+    ansible.builtin.package:
+      name: nodejs
+      state: present
+  - name: Create user
+    ansible.builtin.user:
+      name: roboshop
+  - name: Create directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+  - name: Download application
+    ansible.builtin.get_url:
+      url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+      dest: /tmp
+  - name: Unarchive application
+    ansible.builtin.unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app
+  - name: Install dependencies
+    ansible.builtin.command: npm install
+  - name: Copy catalogue.service
+    ansible.builtin.copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+  - name: Prompt for domain/IP
+    vars_prompt:
+      - name: MONGODB_HOST
+        prompt: Enter mongodb domain/IP
+        private: false
+  - name: Replace domain name/IP
+    ansible.builtin.replace:
+      path: /etc/systemd/system/catalogue.service
+      regexp: '<MONGODB-SERVER-IPADDRESS>'
+      replace: '{{ MONGODB_HOST }}'
+  - name: Daemon reload service
+    ansible.builtin.systemd_service:
+      daemon_reload: yes
+  - name: Install mongodb client
+    ansible.builtin.copy:
+      src: mongodb.repo
+      dest: /etc/yum.repos.d/mongodb.repo
+  - name: Get catalogue count
+    ansible.builtin.command: mongo --host {{ MONGODB_HOST }} --eval --quiet 'db = db.getSiblingDB("catalogue"); db.products.count()'
+    register: product_count
+  - name: Load schema
+    ansible.builtin.command: mongo --host {{ MONGODB_HOST }} </app/schema/catalogue.js
+    when: product_count.stdout == 0
+  - name: Enable and Start catalogue service
+    ansible.builtin.systemd_service:
+      name: catalogue
+      enabled: true
+      state: restarted
