@@ -31,9 +31,9 @@
       dest: /etc/systemd/system/catalogue.service
   - name: Prompt for domain/IP
     vars_prompt:
-      - name: MONGODB_HOST
-        prompt: Enter mongodb domain/IP
-        private: false
+    - name: MONGODB_HOST
+      prompt: Enter mongodb domain/IP
+      private: false
   - name: Replace domain name/IP
     ansible.builtin.replace:
       path: /etc/systemd/system/catalogue.service
