@@ -1,5 +1,9 @@
 - name: Configure catalogue server
   hosts: catalogue
+  vars_prompt:
+    - name: MONGODB_HOST
+      prompt: Enter mongodb domain/IP
+      private: false
   become: yes
   tasks:
   - name: Disable nodejs module
@@ -29,11 +33,8 @@
     ansible.builtin.copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
-  - name: Prompt for domain/IP
-    vars_prompt:
-    - name: MONGODB_HOST
-      prompt: Enter mongodb domain/IP
-      private: false
+  #- name: Prompt for domain/IP
+    
   - name: Replace domain name/IP
     ansible.builtin.replace:
       path: /etc/systemd/system/catalogue.service
