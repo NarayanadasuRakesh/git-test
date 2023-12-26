@@ -58,7 +58,8 @@
 
   - name: Load schema
     ansible.builtin.command: mongo --host {{ MONGODB_HOST }} </app/schema/catalogue.js
-    when: product_count.stdout == 0
+    when: product_count.stdout == "0"
+    
   - name: Enable and Start catalogue service
     ansible.builtin.systemd_service:
       name: catalogue
