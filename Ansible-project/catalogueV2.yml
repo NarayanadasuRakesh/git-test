@@ -46,13 +46,16 @@
   - name: Daemon reload service
     ansible.builtin.systemd_service:
       daemon_reload: yes
+
   - name: Install mongodb client
     ansible.builtin.copy:
       src: mongodb.repo
       dest: /etc/yum.repos.d/mongodb.repo
+
   - name: Get catalogue count
-    ansible.builtin.command: mongo --host {{ MONGODB_HOST }} --eval --quiet 'db = db.getSiblingDB("catalogue"); db.products.count()'
+    ansible.builtin.command: mongo --host {{ MONGODB_HOST }} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
     register: product_count
+
   - name: Load schema
     ansible.builtin.command: mongo --host {{ MONGODB_HOST }} </app/schema/catalogue.js
     when: product_count.stdout == 0
