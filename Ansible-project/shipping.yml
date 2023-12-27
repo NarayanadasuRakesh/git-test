@@ -1,0 +1,74 @@
+- name: Shipping Install and Configuration
+  hosts: shipping
+  become: yes
+  vars:
+    mysql_password: RoboShop@1
+  vars_prompt:
+    - name: CART_HOST
+      prompt: Enter cart domain name/IP
+      private: false
+    - name: MYSQL_HOST
+      prompt: Enter mysql domain name/IP
+      private: false
+  tasks:
+  - name: Install maven
+    ansible.builtin.package:
+      name: maven
+      state: present
+  - name: Create user
+    ansible.builtin.user:
+      name: roboshop
+  - name: Create directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+  - name: Download shipping src
+    ansible.builtin.get_url:
+      url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
+      dest: /tmp
+  - name: Unarchive
+    ansible.builtin.unarchive:
+      src: /tmp/shipping.zip
+      dest: /app
+      remote_src: yes
+  - name: Install dependencies
+    ansible.builtin.command: mvn clean package
+    args:
+      chdir: /app
+  - name: Rename and move jar file
+    ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+    args:
+      chdir: /app
+  - name: Copy shipping service file
+    ansible.builtin.copy:
+      src: shipping.service
+      dest: /etc/systemd/system/shipping.service
+  - name: Replace domain name/IP in service file
+    ansible.builtin.replace:
+      path: /etc/systemd/system/shipping.service
+      replace:
+        - regexp: '<CART-SERVER-IP-ADDRESS>'
+          replace: '{{CART_HOST}}'
+        - regexp: '<MYSQL-SERVER-IP-ADDRESS>'
+          replace: 'MYSQL_HOST'
+  - name: Daemon reload
+    ansible.builtin.systemd_service:
+      daemon-reload: yes
+  - name: Install mysql 
+    ansible.builtin.package:
+      name: mysql
+      state: present
+  - name: Check schema exists or not
+    ansible.builtin.command: mysql -h {{MYSQL_HOST}} -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
+    register: schema
+  - name: Print output
+    ansible.builtin.debug:
+      msg: "Schema output: {{schema}}"
+  - name: Load cities data
+    ansible.builtin.shell: "mysql -h {{MYSQL_HOST}} -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
+    when: schema.stdout != "1"
+  - name: Enable and Start service file
+    ansible.builtin.systemd_service:
+      name: shipping
+      enabled: yes
+      state: restarted
