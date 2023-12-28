@@ -1,0 +1,61 @@
+- name: Payment Install and Configuration 
+  hosts: payment
+  become: yes
+  vars_prompt:
+    - name: CART_HOST
+      prompt: Enter the cart domain/IP
+      private: false
+    - name: USER_HOST
+      prompt: Enter the user domain/IP
+      private: false
+    - name: RABBITMQ_HOST
+      prompt: Enter the rabbitmq domain/IP
+      private: false
+  tasks:
+  - name: Install python package
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - python36
+    - gcc
+    - python3-devel
+  - name: create application user
+    ansible.builtin.user:
+      path: /app
+      state: directory
+  - name: Download application src
+    ansible.builtin.get_url: 
+      url: https://roboshop-builds.s3.amazonaws.com/payment.zip
+      dest: /tmp
+  - name: Unarchive src
+    ansible.builtin.unarchive:
+      src: /tmp/payment.zip
+      dest: /app
+      remote_src: yes
+  - name: Install dependencies
+    ansible.builtin.command: pip3.6 install -r requirements.txt
+    args:
+      chdir: /app
+  - name: Copy payment service file
+    ansible.builtin.copy:
+      src: payment.service
+      dest: /etc/systemd/system/payment.service
+  - name: Replace domain/IP in payment.service file
+    ansible.builtin.replace:
+      path: /etc/systemd/system/payment.service
+      replace:
+        - regexp: <CART-SERVER-IPADDRESS>
+          replace: "{{ CART_HOST }}"
+        - regexp: <USER-SERVER-IPADDRESS>
+          replace: "{{ USER_HOST }}"
+        - regexp: <RABBITMQ-SERVER-IPADDRESS>
+          replace: "{{ RABBITMQ_HOST }}"
+  - name: Daemon-reload
+    ansible.builtin.systemd_service:
+      daemon-reload: yes
+  - name: Enable and Start payment service
+    ansible.builtin.systemd_service:
+      name: payment
+      enabled: yes
+      state: restarted
