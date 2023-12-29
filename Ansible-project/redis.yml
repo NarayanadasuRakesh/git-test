@@ -9,12 +9,12 @@
       disable_gpg_check: true # Note: This not a good practice, leads to security issues
 
   - name: Enable redis module
-    ansible.builtin.shell: dnf module enable redis:remi-6.2
+    ansible.builtin.command: dnf module enable redis:remi-6.2 -y
 
   - name: Install redis 
     ansible.builtin.package:
       name: redis
-      stste: present
+      state: present
 
   - name: configure remote server
     ansible.builtin.replace:
