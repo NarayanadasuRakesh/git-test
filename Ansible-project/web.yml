@@ -41,18 +41,18 @@
       dest: /etc/nginx/default.d/roboshop.conf
   - name: Replace domain name/IP
     ansible.builtin.replace:
-    path: /etc/nginx/default.d/roboshop.conf
-    replace:
-      - regexp: '<catalogue-ip>'
-        replace: '{{ CATALOGUE_HOST }}'
-      - regexp: '<user-ip>'
-        replace: '{{ USER_HOST }}'
-      - regexp: '<cart-ip>'
-        replace: '{{ CART_HOST }}'
-      - regexp: '<shipping-ip>'
-        replace: '{{ SHIPPING_HOST }}'
-      - regexp: '<payment-ip>'
-        replace: '{{ PAYMENT_HOST }}'
+      path: /etc/nginx/default.d/roboshop.conf
+      replace:
+        - regexp: '<catalogue-ip>'
+          replace: '{{ CATALOGUE_HOST }}'
+        - regexp: '<user-ip>'
+          replace: '{{ USER_HOST }}'
+        - regexp: '<cart-ip>'
+          replace: '{{ CART_HOST }}'
+        - regexp: '<shipping-ip>'
+          replace: '{{ SHIPPING_HOST }}'
+        - regexp: '<payment-ip>'
+          replace: '{{ PAYMENT_HOST }}'
   - name: Start and Enable service
     ansible.builtin.systemd_service:
       name: nginx
