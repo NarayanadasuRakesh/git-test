@@ -1,6 +1,22 @@
 - name: web server configuration
   hosts: web
   become: yes
+  vars_prompt:
+    - name: CATALOGUE_HOST
+      prompt: Enter catalogue domain/IP
+      private: false
+    - name: USER_HOST
+      prompt: Enter user domain/IP
+      private: false
+    - name: CART_HOST
+      prompt: Enter cart domain/IP
+      private: false
+    - name: SHIPPING_HOST
+      prompt: Enter shipping domain/IP
+      private: false
+    - name: PAYMENT_HOST
+      prompt: Enter payment domain/IP
+      private: false
   tasks:
   - name: Install nginx
     ansible.builtin.package:
@@ -23,6 +39,20 @@
     ansible.builtin.copy:
       src: roboshop.conf
       dest: /etc/nginx/default.d/roboshop.conf
+  - name: Replace domain name/IP
+    ansible.builtin.replace:
+    path: /etc/nginx/default.d/roboshop.conf
+    replace:
+      - regexp: '<catalogue-ip>'
+        replace: '{{ CATALOGUE_HOST }}'
+      - regexp: '<user-ip>'
+        replace: '{{ USER_HOST }}'
+      - regexp: '<cart-ip>'
+        replace: '{{ CART_HOST }}'
+      - regexp: '<shipping-ip>'
+        replace: '{{ SHIPPING_HOST }}'
+      - regexp: '<payment-ip>'
+        replace: '{{ PAYMENT_HOST }}'
   - name: Start and Enable service
     ansible.builtin.systemd_service:
       name: nginx
