@@ -1,0 +1,972 @@
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_instance.roboshop[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.small"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "mongodb"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "mongodb"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "redis"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "redis"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[2][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.small"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "mysql"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "mysql"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[3][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "rabbitmq"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "rabbitmq"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[4][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "catalogue"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "catalogue"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[5][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "user"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "user"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[6][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "cart"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "cart"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[7][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.small"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "shipping"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "shipping"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[8][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "payment"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "payment"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[9][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "dispatch"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "dispatch"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_instance.roboshop[10][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "roboshop" {
+      [32m+[0m[0m ami                                  = "ami-03265a0778a880afb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = (known after apply)
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "web"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "web"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # aws_route53_record.route53[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "mongodb.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "redis.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[2][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "mysql.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[3][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "rabbitmq.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[4][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "catalogue.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[5][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "user.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[6][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "cart.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[7][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "shipping.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[8][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "payment.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[9][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "dispatch.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_route53_record.route53[10][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "route53" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "web.rakeshintech.online"
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 1
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z02262151UQ7IHQO0AXWY"
+    }
+
+[1m  # aws_security_group.terraform-all[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "terraform-all" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "Allow any traffic from internet"
+      [32m+[0m[0m egress                 = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m description      = ""
+              [32m+[0m[0m from_port        = 0
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "-1"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 0
+            },
+        ]
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m description      = "Allow all"
+              [32m+[0m[0m from_port        = 0
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "tcp"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 0
+            },
+        ]
+      [32m+[0m[0m name                   = "terraform-all"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name" = "terraform-sg"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name" = "terraform-sg"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1mPlan:[0m 23 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m roboshop-info = {
+      [32m+[0m[0m instance_id = [
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+        ]
+      [32m+[0m[0m private_ip  = [
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+        ]
+      [32m+[0m[0m public_ip   = [
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+          [32m+[0m[0m (known after apply),
+        ]
+    }
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0m
+[0m[1maws_security_group.terraform-all: Creating...[0m[0m
+[0m[1maws_security_group.terraform-all: Creation complete after 5s [id=sg-02cd8e6b785f9232e][0m
+[0m[1maws_instance.roboshop[6]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[4]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[1]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[3]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[0]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[7]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[8]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[5]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[2]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[10]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[6]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[1]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[3]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[4]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[7]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[8]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[0]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[5]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[2]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[10]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[2]: Creation complete after 17s [id=i-0a189ef44aa66f6f8][0m
+[0m[1maws_instance.roboshop[0]: Creation complete after 17s [id=i-0de13457ba5b89a59][0m
+[0m[1maws_instance.roboshop[9]: Creating...[0m[0m
+[0m[1maws_instance.roboshop[7]: Creation complete after 17s [id=i-037848682d70b2634][0m
+[0m[1maws_instance.roboshop[6]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[1]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[3]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[4]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[8]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[5]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[10]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[9]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_instance.roboshop[6]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[3]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[1]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[4]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[8]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[5]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[10]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[3]: Creation complete after 37s [id=i-0e435ba75d5adb068][0m
+[0m[1maws_instance.roboshop[9]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_instance.roboshop[1]: Creation complete after 37s [id=i-096215f1ebae6ebe1][0m
+[0m[1maws_instance.roboshop[6]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.roboshop[4]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.roboshop[8]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.roboshop[5]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.roboshop[10]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_instance.roboshop[6]: Creation complete after 46s [id=i-08ad858ded7dc6bfe][0m
+[0m[1maws_instance.roboshop[9]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_instance.roboshop[10]: Creation complete after 47s [id=i-0eb31af14a43aaaf4][0m
+[0m[1maws_instance.roboshop[5]: Creation complete after 48s [id=i-00f1097e7f71a69c0][0m
+[0m[1maws_instance.roboshop[8]: Creation complete after 48s [id=i-0030a01d1dd05d0e0][0m
+[0m[1maws_instance.roboshop[4]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_instance.roboshop[9]: Creation complete after 36s [id=i-080dd308364937693][0m
+[0m[1maws_instance.roboshop[4]: Creation complete after 57s [id=i-04d8965436b7803a6][0m
+[0m[1maws_route53_record.route53[6]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[1]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[4]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[2]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[7]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[0]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[10]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[9]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[3]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[5]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[4]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[6]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[1]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[10]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[0]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[7]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[2]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[9]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[3]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[5]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[6]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[1]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[4]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[7]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[0]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[10]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[2]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[9]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[3]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[5]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[1]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[4]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[6]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[2]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[0]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[10]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[7]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[9]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[3]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[5]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[6]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[4]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[1]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[7]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[10]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[0]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[2]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[9]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[3]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[5]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[0]: Creation complete after 44s [id=Z02262151UQ7IHQO0AXWY_mongodb.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[8]: Creating...[0m[0m
+[0m[1maws_route53_record.route53[5]: Creation complete after 45s [id=Z02262151UQ7IHQO0AXWY_user.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[10]: Creation complete after 45s [id=Z02262151UQ7IHQO0AXWY_web.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[4]: Creation complete after 46s [id=Z02262151UQ7IHQO0AXWY_catalogue.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[9]: Creation complete after 48s [id=Z02262151UQ7IHQO0AXWY_dispatch.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[6]: Creation complete after 48s [id=Z02262151UQ7IHQO0AXWY_cart.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[1]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_route53_record.route53[2]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_route53_record.route53[7]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_route53_record.route53[3]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_route53_record.route53[7]: Creation complete after 50s [id=Z02262151UQ7IHQO0AXWY_shipping.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[3]: Creation complete after 52s [id=Z02262151UQ7IHQO0AXWY_rabbitmq.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[8]: Still creating... [10s elapsed][0m[0m
+[0m[1maws_route53_record.route53[2]: Creation complete after 55s [id=Z02262151UQ7IHQO0AXWY_mysql.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[1]: Creation complete after 55s [id=Z02262151UQ7IHQO0AXWY_redis.rakeshintech.online_A][0m
+[0m[1maws_route53_record.route53[8]: Still creating... [20s elapsed][0m[0m
+[0m[1maws_route53_record.route53[8]: Still creating... [30s elapsed][0m[0m
+[0m[1maws_route53_record.route53[8]: Still creating... [40s elapsed][0m[0m
+[0m[1maws_route53_record.route53[8]: Still creating... [50s elapsed][0m[0m
+[0m[1maws_route53_record.route53[8]: Creation complete after 52s [id=Z02262151UQ7IHQO0AXWY_payment.rakeshintech.online_A][0m
+[0m[1m[32m
+Apply complete! Resources: 23 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mroboshop-info = {
+  "instance_id" = [
+    "i-0de13457ba5b89a59",
+    "i-096215f1ebae6ebe1",
+    "i-0a189ef44aa66f6f8",
+    "i-0e435ba75d5adb068",
+    "i-04d8965436b7803a6",
+    "i-00f1097e7f71a69c0",
+    "i-08ad858ded7dc6bfe",
+    "i-037848682d70b2634",
+    "i-0030a01d1dd05d0e0",
+    "i-080dd308364937693",
+    "i-0eb31af14a43aaaf4",
+  ]
+  "private_ip" = [
+    "172.31.37.212",
+    "172.31.43.217",
+    "172.31.42.167",
+    "172.31.44.198",
+    "172.31.39.192",
+    "172.31.46.174",
+    "172.31.47.43",
+    "172.31.36.7",
+    "172.31.38.202",
+    "172.31.46.248",
+    "172.31.46.81",
+  ]
+  "public_ip" = [
+    "52.205.165.117",
+    "54.204.89.98",
+    "54.210.203.136",
+    "35.175.224.47",
+    "3.90.178.87",
+    "3.90.14.137",
+    "3.81.81.215",
+    "3.81.47.153",
+    "54.173.63.187",
+    "54.152.154.201",
+    "54.198.17.169",
+  ]
+}
