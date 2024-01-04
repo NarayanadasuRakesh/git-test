@@ -19,3 +19,7 @@ data "aws_ami" "aws-linux-2" {
     values = ["arm64"]
   }
 }
+
+data "aws_vpc" "default" {
+  default = true
+}
