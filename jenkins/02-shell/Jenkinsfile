@@ -1,0 +1,29 @@
+// How to use multiple shell commands and run pipeline
+pipeline {
+    agent any
+    stages {
+        stage(Dev) {
+            steps {
+                echo "This is Dev environment"
+                sleep 10
+            }
+        }
+        stage(Test) {
+            steps {
+                sh """
+                    echo "Thhis is Test environment" > /tmp/file1
+                    date >> /tmp/file1
+                """
+            }
+        }
+        stage(Prod) {
+            steps {
+                sh """
+                    echo "This is Prod environment" >> /tmp/file1
+                    netstat -lntp | grep java >> /tmp/file1
+                    cat /tmp/file1
+                """
+                }
+        }
+    }
+}
