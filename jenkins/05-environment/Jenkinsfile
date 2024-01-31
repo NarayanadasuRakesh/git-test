@@ -1,0 +1,24 @@
+// How to define environment variables
+pipeline {
+    agent {
+        node { label 'Node-1' }
+    }
+    environment { // define environment {} inside block
+        ROLE = 'DevOps Engineer'
+    }
+    stages {
+        stage('listEnv') {
+            steps {
+                sh """
+                    echo "show all environment variables"
+                    env
+                """
+            }
+        }
+        stage('Env') {
+            steps {
+                sh 'echo "Role: $ROLE"'
+            }
+        }
+    }
+}
