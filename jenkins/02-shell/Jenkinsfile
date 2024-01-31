@@ -4,12 +4,11 @@ pipeline {
     stages {
         stage(Dev) {
             steps {
-                echo "This is Dev environment"
-                sleep 10
+                sh 'echo "This is Dev environment"' // singe line command
             }
         }
         stage(Test) {
-            steps {
+            steps { // multiple commands
                 sh """
                     echo "Thhis is Test environment" > /tmp/file1
                     date >> /tmp/file1
