@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    options {
+        timeout(time: 10, unit:'SECONDS') // abort after 10 seconds
+        disableConcurrentBuilds() // this option disables multiple builds
+    }
+    stages {
+        stage('Test') {
+            steps {
+                echo "Timeout check"
+                sleep 20
+            }
+        }
+    }
+    post {
+        aborted {
+            echo "stage aborted due to timeout" // if pipeline abort post block will execute
+        }
+    }
+}
