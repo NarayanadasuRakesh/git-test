@@ -1,0 +1,29 @@
+// post runs after completion of pipeline. The condition blocks are executed.
+pipeline {
+    agent {
+        node { label 'Node-1' }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "This is Building stage"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "This is Testing stage"
+            }
+        }
+    }
+    post {
+        always {
+            echo "Executes always"
+        }
+        failure {
+            echo "Execute only incase of failure"
+        }
+        success {
+            echo "Executes only if success"
+        }
+    }
+}
