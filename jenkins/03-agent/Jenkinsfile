@@ -1,0 +1,25 @@
+/* How to run pipeline on specific agent
+before executing this pipeline you need to configure agent */
+pipeline {
+    agent {
+        node { label 'Node-1' } // agent name is Node-1
+    }
+    stages {
+        stage(Dev) {
+            steps {
+                echo "This is Dev environment"
+                sleep 10
+            }
+        }
+        stage(Test) {
+            steps {
+                echo "Thhis is Test environment"
+            }
+        }
+        stage(Prod) {
+            steps {
+                echo "This is Prod environment"
+            }
+        }
+    }
+}
