@@ -2,12 +2,12 @@
 pipeline {
     agent any
     stages {
-        stage(Dev) {
+        stage('Dev') {
             steps {
                 sh 'echo "This is Dev environment"' // singe line command
             }
         }
-        stage(Test) {
+        stage('Test') {
             steps { // multiple commands
                 sh """
                     echo "Thhis is Test environment" > /tmp/file1
@@ -15,7 +15,7 @@ pipeline {
                 """
             }
         }
-        stage(Prod) {
+        stage('Prod') {
             steps {
                 sh """
                     echo "This is Prod environment" >> /tmp/file1

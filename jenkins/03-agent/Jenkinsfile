@@ -5,18 +5,18 @@ pipeline {
         node { label 'Node-1' } // agent name is Node-1
     }
     stages {
-        stage(Dev) {
+        stage('Dev') {
             steps {
                 echo "This is Dev environment"
                 sleep 10
             }
         }
-        stage(Test) {
+        stage('Test') {
             steps {
                 echo "Thhis is Test environment"
             }
         }
-        stage(Prod) {
+        stage('Prod') {
             steps {
                 echo "This is Prod environment"
             }
