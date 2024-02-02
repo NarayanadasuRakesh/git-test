@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh '''
                     cd terraform/data-source
-                    terraform init
+                    terraform init -reconfigure
                 '''
             }
         }
