@@ -3,7 +3,7 @@ pipeline {
         node { label 'Node-1' }
     }
     parameters {
-        choice(name: 'ACTION', choice:['apply','destroy'])
+        choice(name: 'ACTION', choices:['apply','destroy'])
     }
     stages {
         stage('terraform-setup') {
