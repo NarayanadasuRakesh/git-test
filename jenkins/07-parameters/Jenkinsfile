@@ -4,7 +4,7 @@ pipeline {
         string(name:'COMPONENT',defaultValue:'catalogue')
         booleanParam(name:'TOGGLE',defaultValue:true)
         choice(name:'CHOICE',choices:['Dev','Test','Prod'],description:'pick something')
-        text defaultValue: 'Joe', name: 'PERSON'
+        text defaultValue: 'Sam', name: 'PERSON'
     }
     stages{
         stage('parameters') {
