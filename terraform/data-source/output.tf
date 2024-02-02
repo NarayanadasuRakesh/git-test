@@ -1,5 +1,9 @@
+# output "ami_info" {
+#   value = data.aws_ami.aws-linux-2.id # shows instance id
+# }
+
 output "ami_info" {
-  value = data.aws_ami.aws-linux-2.id # shows instance id
+  value = data.aws_ami.centos8.id # shows instance id
 }
 
 output "vpc_info" {
