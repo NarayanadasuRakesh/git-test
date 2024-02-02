@@ -5,6 +5,9 @@ pipeline {
     parameters {
         choice(name: 'ACTION', choices:['apply','destroy'])
     }
+    options {
+        ansicolor('xterm')
+    }
     stages {
         stage('terraform-setup') {
             steps {
@@ -15,10 +18,17 @@ pipeline {
                 '''
             }
         }
+        stage('clone') {
+            steps {
+                sh '''
+                    git clone https://github.com/NarayanadasuRakesh/git-test.git
+                '''
+            }
+        }
         stage('init') {
             steps {
                 sh '''
-                    cd terraform/data-source
+                    cd git-test/terraform/data-source/
                     terraform init -reconfigure
                 '''
             }
@@ -35,7 +45,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    cd terraform/data-source
+                    cd git-test/terraform/data-source/
                     terraform apply -auto-approve
                 '''
             }
@@ -52,7 +62,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    cd terraform/data-source
+                    cd git-test/terraform/data-source/
                     terraform destroy -auto-approve
                 '''
             }
