@@ -59,6 +59,10 @@ pipeline {
         }
     }
     post {
+        always {
+            echo "Deleting directory"
+            deleteDir()
+        }
         success {
             echo "The pipeline execution is SUCCESS"
         }
