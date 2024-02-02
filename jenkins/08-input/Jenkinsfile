@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    environment {
+        MESSAGE = 'input directive is success'
+    }
+    stages {
+        stage('input') {
+            input {
+                message 'should we continue?'
+                ok 'Yes, we should'
+            }
+            steps{
+                echo "${env.MESSAGE}"
+            }
+        }
+    }
+    post{
+        success{
+            echo "This pipeline execution is success"
+        }
+    }
+}
