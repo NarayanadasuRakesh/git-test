@@ -1,0 +1,72 @@
+pipeline {
+    agent {
+        node { label 'Node-1' }
+    }
+    parameters {
+        choice(name: 'ACTION', choice:['apply','destroy'])
+    }
+    stages {
+        stage('terraform-setup') {
+            steps {
+                sh '''
+                    sudo yum install -y yum-utils
+                    sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+                    sudo yum -y install terraform
+                '''
+            }
+        }
+        stage('init') {
+            steps {
+                sh '''
+                    cd terraform/data-source
+                    terraform init
+                '''
+            }
+        }
+        stage('deploy') {
+            when {
+                expression {
+                    ${params.ACTION} == 'apply'
+                }
+            }
+            input {
+                message "should we continue?"
+                ok "Yes, we should."
+            }
+            steps {
+                sh '''
+                    cd terraform/data-source
+                    terraform apply -auto-approve
+                '''
+            }
+        }
+        stage('destroy') {
+            when {
+                expression {
+                    ${params.ACTION} == 'destroy'
+                }
+            }
+            input {
+                message "should we continue?"
+                ok "Yes, we should."
+            }
+            steps {
+                sh '''
+                    cd terraform/data-source
+                    terraform destroy -auto-approve
+                '''
+            }
+        }
+    }
+    post {
+        success {
+            echo "The pipeline execution is SUCCESS"
+        }
+        failure {
+            echo "The pipeline execution is FAILED"
+        }
+        aborted {
+            echo "Unexpected error ABORTED pipeline"
+        }
+    }
+}
