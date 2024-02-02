@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    parameters {
+        string(name:'COMPONENT',defaultValue:'catalogue')
+        booleanParam(name:'TOGGLE',defaultValue:true)
+        choice(name:'CHOICE',choices:['Dev','Test','Prod'],description:'pick something')
+    }
+    stages{
+        stage('parameters') {
+            steps {
+                echo "component is ${params.COMPONENT}"
+                echo "Toggle: ${params.TOGGLE}"
+            }
+        }
+    }
+    post {
+        success {
+            echo "${params.COMPONENT} component pipeline is success"
+        }
+    }
+}
