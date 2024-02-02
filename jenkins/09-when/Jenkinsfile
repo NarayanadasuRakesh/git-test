@@ -8,23 +8,7 @@ pipeline {
     options {
         ansicolor('xterm')
     }
-    stages {
-        stage('terraform-setup') {
-            steps {
-                sh '''
-                    sudo yum install -y yum-utils
-                    sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-                    sudo yum -y install terraform
-                '''
-            }
-        }
-        stage('clone') {
-            steps {
-                sh '''
-                    git clone https://github.com/NarayanadasuRakesh/git-test.git
-                '''
-            }
-        }
+    stages {    
         stage('init') {
             steps {
                 sh '''
@@ -53,7 +37,7 @@ pipeline {
         stage('destroy') {
             when {
                 expression {
-                    ${params.ACTION} == 'destroy'
+                    "${params.ACTION} == 'destroy'"
                 }
             }
             input {
