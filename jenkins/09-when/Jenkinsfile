@@ -18,7 +18,7 @@ pipeline {
         stage('init') {
             steps {
                 sh '''
-                    cd terraform/data-source
+                    cd git-test/terraform/data-source
                     terraform init -reconfigure
                 '''
             }
@@ -35,7 +35,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    cd terraform/data-source
+                    cd git-test/terraform/data-source
                     terraform apply -auto-approve
                 '''
             }
